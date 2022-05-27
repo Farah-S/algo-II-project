@@ -1,132 +1,137 @@
-# Python program for Dijkstra's
-# single source shortest
-# path algorithm. The program
-# is for adjacency matrix
-# representation of the graph
-
 from collections import defaultdict
 
-#Class to represent a graph
-class Graph:
+class Node_Distance :
 
-	# A utility function to find the
-	# vertex with minimum dist value, from
-	# the set of vertices still in queue
-	def minDistance(self,dist,queue):
-		# Initialize min value and min_index as -1
-		minimum = float("Inf")
-		min_index = -1
-		
-		# from the dist array,pick one which
-		# has min value and is till in queue
-		for i in range(len(dist)):
-			if dist[i] < minimum and i in queue:
-				minimum = dist[i]
-				min_index = i
-		return min_index
+    def __init__(self, name : int, dist : int) :
+        self.name = name
+        self.dist = dist
+
+class Graph :
+
+    def __init__ (self, node_count : int) :
+        # Store the adjacency list as a dictionary
+        # The default dictionary would create an empty list as a default (value) 
+        # for the nonexistent keys.
+        self.adjlist = defaultdict(list)
+        self.node_count = node_count
+
+    def Add_Into_Adjlist (self, src : int, node_dist : Node_Distance(int,int)) :
+        self.adjlist[src].append(node_dist)
+
+    def Dijkstras_Shortest_Path (self, source : int) :
+
+        # Initialize the distance of all the nodes from the source node to infinity
+        distance = [999999999999] * self.node_count
+        # Distance of source node to itself is 0
+        distance[source] = 0
+
+        # Create a dictionary of { node, distance_from_source }
+        dict_node_length = {source: 0}
+
+        while dict_node_length :
+
+            # Get the key for the smallest value in the dictionary
+            # i.e Get the node with the shortest distance from the source
+            current_source_node = min(dict_node_length, key = lambda k: dict_node_length[k])
+            del dict_node_length[current_source_node]
+
+            for node_dist in self.adjlist[current_source_node] :
+                adjnode = node_dist.name
+                length_to_adjnode = node_dist.dist
+
+                # Edge relaxation
+                if distance[adjnode] > distance[current_source_node] + length_to_adjnode :
+                    distance[adjnode] = distance[current_source_node] + length_to_adjnode
+                    dict_node_length[adjnode] = distance[adjnode]
+
+        for i in range(self.node_count) :
+            print("Source Node ("+str(source)+")  -> Destination Node(" + str(i) + ")  : " + str(distance[i]))
+
+def main() :
+
+	g = Graph(53)
+
+    # Node 1: 
+	g.Add_Into_Adjlist(1, Node_Distance(11, 2))
+
+    # Node 2:
+	g.Add_Into_Adjlist(2, Node_Distance(11, 7))
+	g.Add_Into_Adjlist(2, Node_Distance(12, 2))
+	g.Add_Into_Adjlist(2, Node_Distance(21, 16))
+
+    # Node 3:
+	g.Add_Into_Adjlist(3, Node_Distance(10, 1))
+
+    # Node 4:
+	g.Add_Into_Adjlist(4, Node_Distance(9, 1))
+	g.Add_Into_Adjlist(4, Node_Distance(10, 3))
+	g.Add_Into_Adjlist(4, Node_Distance(14, 3))
+
+    # Node 5: 
+	g.Add_Into_Adjlist(5, Node_Distance(7, 1))
+
+	# Node 6: 
+	g.Add_Into_Adjlist(6, Node_Distance(18, 7))
+
+	# Node 7:
+	g.Add_Into_Adjlist(7, Node_Distance(5, 1))
+	g.Add_Into_Adjlist(7, Node_Distance(8, 1))
+	g.Add_Into_Adjlist(7, Node_Distance(16, 1))
+
+	# Node 8:
+	g.Add_Into_Adjlist(8, Node_Distance(7, 1))
+	g.Add_Into_Adjlist(8, Node_Distance(15, 1))
+
+	# Node 9:
+	g.Add_Into_Adjlist(9, Node_Distance(4, 1))
+
+	# Node 10:
+	g.Add_Into_Adjlist(10, Node_Distance(4, 3))
+	g.Add_Into_Adjlist(10, Node_Distance(3, 1))
+	g.Add_Into_Adjlist(10, Node_Distance(11, 3))
+
+	# Node 11:
+	g.Add_Into_Adjlist(11, Node_Distance(1, 2))
+	g.Add_Into_Adjlist(11, Node_Distance(2, 7))
+	g.Add_Into_Adjlist(11, Node_Distance(10, 3))
+
+	# Node 12:
+	g.Add_Into_Adjlist(12, Node_Distance(2, 2))
+
+	# Node 13:
+	g.Add_Into_Adjlist(13, Node_Distance(21, 11))
+
+	# Node 14:
+	g.Add_Into_Adjlist(14, Node_Distance(4, 3))
+	g.Add_Into_Adjlist(14, Node_Distance(8, 5))
+	g.Add_Into_Adjlist(14, Node_Distance(23, 10))
+
+	# Node 15:
+	g.Add_Into_Adjlist(15, Node_Distance(8, 1))
+
+	# Node 16:
+	g.Add_Into_Adjlist(16, Node_Distance(7, 1))
+	g.Add_Into_Adjlist(16, Node_Distance(17, 1))
+	g.Add_Into_Adjlist(16, Node_Distance(18, 1))
+
+	# Node 17:
+	g.Add_Into_Adjlist(17, Node_Distance(16, 1))
+
+	# Node 18:
+	g.Add_Into_Adjlist(18, Node_Distance(6, 7))
+	g.Add_Into_Adjlist(18, Node_Distance(16, 1))
+	g.Add_Into_Adjlist(18, Node_Distance(35, 11))
+
+	# Node 19:
+	g.Add_Into_Adjlist(19, Node_Distance(23, 20))
+
+	# Node 20:
+	g.Add_Into_Adjlist(20, Node_Distance(22, 1))
+
+	g.Dijkstras_Shortest_Path(0)
+	print("\n")
+	g.Dijkstras_Shortest_Path(5);
 
 
-	# Function to print shortest path
-	# from source to j
-	# using parent array
-	def printPath(self, parent, j):
-		
-		#Base Case : If j is source
-		if parent[j] == -1 :
-			print(j,end=" ")
-			return
-		self.printPath(parent , parent[j])
-		print (j,end=" ")
-		
-
-	# A utility function to print
-	# the constructed distance
-	# array
-	def printSolution(self, dist, parent):
-		src = 0
-		print("Vertex \t\tDistance from Source\tPath")
-		for i in range(1, len(dist)):
-			print("\n%d --> %d \t\t%d \t\t\t\t\t" % (src, i, dist[i]),end=" ")
-			self.printPath(parent,i)
-
-
-	'''Function that implements Dijkstra's single source shortest path
-	algorithm for a graph represented using adjacency matrix
-	representation'''
-	def dijkstra(self, graph, src):
-
-		row = len(graph)
-		col = len(graph[0])
-
-		# The output array. dist[i] will hold
-		# the shortest distance from src to i
-		# Initialize all distances as INFINITE
-		dist = [float("Inf")] * row
-
-		#Parent array to store
-		# shortest path tree
-		parent = [-1] * row
-
-		# Distance of source vertex
-		# from itself is always 0
-		dist[src] = 0
-	
-		# Add all vertices in queue
-		queue = []
-		for i in range(row):
-			queue.append(i)
-			
-		#Find shortest path for all vertices
-		while queue:
-
-			# Pick the minimum dist vertex
-			# from the set of vertices
-			# still in queue
-			u = self.minDistance(dist,queue)
-
-			# remove min element	
-			queue.remove(u)
-
-			# Update dist value and parent
-			# index of the adjacent vertices of
-			# the picked vertex. Consider only
-			# those vertices which are still in
-			# queue
-			for i in range(col):
-				'''Update dist[i] only if it is in queue, there is
-				an edge from u to i, and total weight of path from
-				src to i through u is smaller than current value of
-				dist[i]'''
-				if graph[u][i] and i in queue:
-					if dist[u] + graph[u][i] < dist[i]:
-						dist[i] = dist[u] + graph[u][i]
-						parent[i] = u
-
-
-		# print the constructed distance array
-		self.printSolution(dist,parent)
-
-g= Graph()
-         #1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
-graph = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		]
-
-# Print the solution
-g.dijkstra(graph,0)
-
-
-# This code is contributed by Neelam Yadav
+if __name__ == "__main__" :
+	main()
