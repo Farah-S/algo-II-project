@@ -128,6 +128,73 @@ def main() :
 	# Node 20:
 	g.Add_Into_Adjlist(20, Node_Distance(22, 1))
 
+	# Node 37:
+	g.Add_Into_Adjlist(37, Node_Distance(33, 6))
+	g.Add_Into_Adjlist(37, Node_Distance(36, 8))
+	g.Add_Into_Adjlist(37, Node_Distance(45, 6))	
+
+	# Node 38:
+	g.Add_Into_Adjlist(38, Node_Distance(28, 7))
+	g.Add_Into_Adjlist(38, Node_Distance(45, 9))
+	g.Add_Into_Adjlist(38, Node_Distance(46, 5))
+
+	# Node 39:
+	g.Add_Into_Adjlist(39, Node_Distance(31, 3))
+	g.Add_Into_Adjlist(39, Node_Distance(50, 6))
+	g.Add_Into_Adjlist(39, Node_Distance(53, 20))
+
+	# Node 40:
+	g.Add_Into_Adjlist(40, Node_Distance(41, 3))
+
+	# Node 41:
+	g.Add_Into_Adjlist(41, Node_Distance(40, 3))
+	g.Add_Into_Adjlist(41, Node_Distance(42, 12))
+	g.Add_Into_Adjlist(41, Node_Distance(48, 6))
+
+	# Node 42:
+	g.Add_Into_Adjlist(42, Node_Distance(41, 12))
+
+	# Node 43:
+	g.Add_Into_Adjlist(43, Node_Distance(47, 10))
+
+	# Node 44:
+	g.Add_Into_Adjlist(44, Node_Distance(47, 10))
+
+	# Node 45:
+	g.Add_Into_Adjlist(45, Node_Distance(37, 6))
+	g.Add_Into_Adjlist(45, Node_Distance(38, 9))
+	g.Add_Into_Adjlist(45, Node_Distance(47, 5))
+
+	# Node 46:
+	g.Add_Into_Adjlist(46, Node_Distance(38, 5))
+
+	# Node 47:
+	g.Add_Into_Adjlist(47, Node_Distance(43, 10))
+	g.Add_Into_Adjlist(47, Node_Distance(45, 5))
+	g.Add_Into_Adjlist(47, Node_Distance(52, 7))
+
+	# Node 48:
+	g.Add_Into_Adjlist(48, Node_Distance(41, 6))
+	g.Add_Into_Adjlist(48, Node_Distance(50, 5))
+	g.Add_Into_Adjlist(48, Node_Distance(51, 5))
+
+	# Node 49:
+	g.Add_Into_Adjlist(49, Node_Distance(50, 2))
+
+	# Node 50:
+	g.Add_Into_Adjlist(50, Node_Distance(39, 6))
+	g.Add_Into_Adjlist(50, Node_Distance(48, 5))
+	g.Add_Into_Adjlist(50, Node_Distance(49, 2))
+
+	# Node 51:
+	g.Add_Into_Adjlist(51, Node_Distance(48, 5))
+
+	# Node 52:
+	g.Add_Into_Adjlist(52, Node_Distance(47, 7))
+
+	# Node 53:
+	g.Add_Into_Adjlist(52, Node_Distance(39, 20))
+
 	g.Dijkstras_Shortest_Path(0)
 	print("\n")
 	g.Dijkstras_Shortest_Path(5);
