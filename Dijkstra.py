@@ -128,6 +128,72 @@ def main() :
 	# Node 20:
 	g.Add_Into_Adjlist(20, Node_Distance(22, 1))
 
+	# Node 21:
+	g.Add_Into_Adjlist(21, Node_Distance(2, 16))
+	g.Add_Into_Adjlist(21, Node_Distance(13, 11))
+	g.Add_Into_Adjlist(21, Node_Distance(22, 5))
+	g.Add_Into_Adjlist(21, Node_Distance(25, 7))
+	
+	# Node 22:
+	g.Add_Into_Adjlist(22, Node_Distance(24, 1))
+	g.Add_Into_Adjlist(22, Node_Distance(20, 1))
+	g.Add_Into_Adjlist(22, Node_Distance(21, 5))
+	
+	
+	# Node 23:
+	g.Add_Into_Adjlist(23, Node_Distance(14, 10))
+	g.Add_Into_Adjlist(23, Node_Distance(19, 20))
+	g.Add_Into_Adjlist(23, Node_Distance(27, 11))
+
+	# Node 24:
+	g.Add_Into_Adjlist(24, Node_Distance(22, 1))
+	
+	# Node 25:
+	g.Add_Into_Adjlist(25, Node_Distance(31, 2))
+	g.Add_Into_Adjlist(25, Node_Distance(29, 7))
+	g.Add_Into_Adjlist(25, Node_Distance(21, 7))
+	
+	# Node 26:
+	g.Add_Into_Adjlist(26, Node_Distance(28, 9))
+	
+	# Node 27:
+	g.Add_Into_Adjlist(27, Node_Distance(23, 11))
+	
+	# Node 28:
+	g.Add_Into_Adjlist(28, Node_Distance(26, 9))
+	g.Add_Into_Adjlist(28, Node_Distance(38, 7))
+	g.Add_Into_Adjlist(28, Node_Distance(29, 5))
+	
+	# Node 29:
+	g.Add_Into_Adjlist(29, Node_Distance(30, 1))
+	g.Add_Into_Adjlist(29, Node_Distance(25, 7))
+	g.Add_Into_Adjlist(29, Node_Distance(28, 5))
+	
+	# Node 30:
+	g.Add_Into_Adjlist(30, Node_Distance(29, 1))
+	
+	# Node 31:
+	g.Add_Into_Adjlist(31, Node_Distance(25, 2))
+	g.Add_Into_Adjlist(31, Node_Distance(32, 6))
+	g.Add_Into_Adjlist(31, Node_Distance(39, 3))
+	
+	# Node 32:
+	g.Add_Into_Adjlist(32, Node_Distance(31, 6))
+	
+	# Node 33:
+	g.Add_Into_Adjlist(33, Node_Distance(37, 6))
+	
+	# Node 34:
+	g.Add_Into_Adjlist(34, Node_Distance(36, 8))
+	
+	# Node 35:
+	g.Add_Into_Adjlist(35, Node_Distance(18, 11))
+	
+	# Node 36:
+	g.Add_Into_Adjlist(36, Node_Distance(34, 8))
+	g.Add_Into_Adjlist(36, Node_Distance(37, 8))
+	g.Add_Into_Adjlist(36, Node_Distance(44, 3))
+
 	# Node 37:
 	g.Add_Into_Adjlist(37, Node_Distance(33, 6))
 	g.Add_Into_Adjlist(37, Node_Distance(36, 8))
