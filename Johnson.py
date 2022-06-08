@@ -100,13 +100,14 @@ def JohnsonAlgorithm(graph):
 				modifiedGraph[i][j] = (graph[i][j] +
 						modifyWeights[i] - modifyWeights[j]);
 
-	print ('Modified Graph: ' + str(modifiedGraph))
+	# print ('Modified Graph: ' + str(modifiedGraph))
 
 	# Run Dijkstra for every vertex as source one by one
 	for src in range(len(graph)):
-		print ('\nShortest Distance with vertex ' +
-						str(src) + ' as the source:\n')
-		Dijkstra(graph, modifiedGraph, src)
+		if(src==0):
+			print ('\nShortest Distance with vertex ' +
+							str(src) + ' as the source:\n')
+			Dijkstra(graph, modifiedGraph, src)
 
 # Driver Code
 # graph = [[0, -5, 2, 3],
