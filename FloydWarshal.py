@@ -69,9 +69,9 @@ between every pair of vertices")
 				print ("%7s" % ("INF"),end=" ")
 			else:
 				print ("%7d\t" % (dist[i][j]),end=' ')
-			if j == V-1: #dis is supposed to be j == V minus one
+			if j == V-1:
 				print ()
-
+		print("___________________________________________________________________________________________________________________________________________________________________")
 
 # Driver program to test the above program
 # Let us create the following weighted graph
@@ -149,6 +149,12 @@ graph =	    [[INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    2, INF, INF, 
 			[INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    INF, INF, INF, INF, INF, INF,  7, INF, INF, INF,    INF, INF, INF], #51
 			[INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, 20, INF,    INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    INF, INF, INF]  #52
 		]
+
+for i in range(53): 
+	for j in range(53):
+		if(i==j):
+			graph[i][j]=0
+   
 # Print the solution
 floydWarshall(graph)
 # This code is contributed by Mythri J L
