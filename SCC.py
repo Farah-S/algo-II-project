@@ -1,5 +1,5 @@
 from collections import defaultdict
-   
+import time  
 #This class represents a directed graph using adjacency list representation
 class Graph:
     
@@ -299,5 +299,11 @@ g.addEdge(52, 38)
     
 print ("Following are strongly connected components " +
                             "in given graph")
+
+start = time.time()
 g.printSCCs()
+end = time.time()
+print(f"Runtime of the program is {end - start}")                           
+
+
     #This code is contributed by Neelam Yadav
