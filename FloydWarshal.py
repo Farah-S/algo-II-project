@@ -67,9 +67,12 @@ between every pair of vertices")
 	for i in range(V):
 		print("Row",i)
 		for j in range(V):
-			print ("%7d\t" % (dist[i][j]),end=' ')
-			if j == V-1:
-				print ()
+				if(dist[i][j] == INF):
+					print ("%7s" % ("INF"),end=" ")
+				else:
+					print ("%7d\t" % (dist[i][j]),end=' ')
+				if j == V-1:
+					print ()
 		print("___________________________________________________________________________________________________________________________________________________________________")
 
 	print("the smallest distance between Starting Node 0 and node",V,"is",dist[0][52])
