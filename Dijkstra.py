@@ -1,5 +1,6 @@
 from collections import defaultdict
 from dis import dis
+import time
 
 class Node_Distance :
 
@@ -265,9 +266,13 @@ def main() :
 
 	# Node 53:
 	g.Add_Into_Adjlist(53, Node_Distance(39, 20))
-
+	
+	start = time.time()
 	g.Dijkstras_Shortest_Path(1)
+	end = time.time()
 	print("\n")
+	print(f"Runtime of the program is {end - start}")
+	
 	# g.Dijkstras_Shortest_Path(53)
 	
 

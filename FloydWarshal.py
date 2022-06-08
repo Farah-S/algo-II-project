@@ -1,4 +1,5 @@
-# Python Program for Floyd Warshall Algorithm
+import time
+
 
 # Number of vertices in the graph
 V = 53
@@ -64,26 +65,17 @@ def printSolution(dist):
 	print ("Following matrix shows the shortest distances\
 between every pair of vertices")
 	for i in range(V):
+		print("Row",i)
 		for j in range(V):
-			if(dist[i][j] == INF):
-				print ("%7s" % ("INF"),end=" ")
-			else:
-				print ("%7d\t" % (dist[i][j]),end=' ')
+			print ("%7d\t" % (dist[i][j]),end=' ')
 			if j == V-1:
 				print ()
 		print("___________________________________________________________________________________________________________________________________________________________________")
 
+	print("the smallest distance between Starting Node 0 and node",V,"is",dist[0][52])
 # Driver program to test the above program
 # Let us create the following weighted graph
-"""
-			10
-	(0)------->(3)
-		|		 /|\
-	5 |		 |
-		|		 | 1
-	\|/		 |
-	(1)------->(2)
-			3		 """
+
              # 0   1   2   3   4   5   6   7   8   9    10  11  12  13  14  15  16  17  18  19    20  21  22  23  24  25  26  27  28  29    30  31  32  33  34  35  36  37  38  39     40  41  42  43  44  45  46  47  48  49     50  51  52
 graph =	    [[INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    2, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    INF, INF, INF], #0
 			[INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    7,  2, INF, INF, INF, INF, INF, INF, INF, INF,   16, INF, INF, INF, INF, INF, INF, INF, INF, INF,   INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    INF, INF, INF, INF, INF, INF, INF, INF, INF, INF,    INF, INF, INF], #1
@@ -155,8 +147,11 @@ for i in range(53):
 		if(i==j):
 			graph[i][j]=0
    
-# Print the solution
+# Print the solution 
+start = time.time()
 floydWarshall(graph)
+end = time.time()
+print(f"Runtime of the program is {end - start}")
 # This code is contributed by Mythri J L
 
 

@@ -1,5 +1,5 @@
 # Implementation of Johnson's algorithm in Python3
-
+import time
 # Import function to initialize the dictionary
 from collections import defaultdict
 MAX_INT = float('Inf')
@@ -180,4 +180,8 @@ graph =    [[ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    2,  0,  0,  0,  0,  0,  
 			[ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,    0,  0,  0,  0,  0,  0,  0,  0, 20,  0,     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,     0,  0,  0]  #52
 		]
 
+start = time.time()
 JohnsonAlgorithm(graph)
+end = time.time()
+print(f"Runtime of the program is {end - start}")
+
